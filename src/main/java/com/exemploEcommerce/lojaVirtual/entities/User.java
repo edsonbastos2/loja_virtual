@@ -15,6 +15,8 @@ public class User {
     private Long id;
 
     private String name;
+
+    @Column(unique = true)
     private String email;
     private String phone;
     private LocalDate birthDate;
@@ -23,6 +25,8 @@ public class User {
     @OneToMany(mappedBy = "client")
     private List<Order> orders = new ArrayList<>();
 
+    public User() {
+    }
 
     public User(Long id, String name, String email, String phone, LocalDate birthDate, String password) {
         this.id = id;
